@@ -47,8 +47,8 @@ const FireTimeCalculator = () => {
     let stationMinute = stationTotalMinutes % 60;
 
     //fuel consumption
-    let TripMilage=2*d;
-    let TankfuelConsumption=(2*d)/4;
+    let TripMilage=2*d+(t-1)*4;
+    let TankfuelConsumption=(TripMilage)/4;
     let pumpingHours=Math.floor((t*30)/60);
     let pumpingMins=(t*30)%60;
     let PumpfuelConsumption=t*2;
