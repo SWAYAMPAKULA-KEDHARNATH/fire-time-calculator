@@ -46,6 +46,14 @@ const FireTimeCalculator = () => {
     let stationHour = (leftHour + Math.floor(stationTotalMinutes / 60)) % 24;
     let stationMinute = stationTotalMinutes % 60;
 
+    //fuel consumption
+    let TripMilage=2*d;
+    let TankfuelConsumption=(2*d)/4;
+    let pumpingHours=(t*30)/60;
+    let pumpingMins=(t*30)%60;
+    let PumpfuelConsumption=t*2;
+    let TotalFuelConsumption=TankfuelConsumption+PumpfuelConsumption;
+
     setResults({
       breakout: `${breakoutHour.toString().padStart(2, "0")}:${breakoutMinute.toString().padStart(2, "0")}`,
       call: `${callHour.toString().padStart(2, "0")}:${callMinute.toString().padStart(2, "0")}`,
@@ -53,6 +61,12 @@ const FireTimeCalculator = () => {
       reached: `${reachedHour.toString().padStart(2, "0")}:${reachedMinute.toString().padStart(2, "0")}`,
       left: `${leftHour.toString().padStart(2, "0")}:${leftMinute.toString().padStart(2, "0")}`,
       station: `${stationHour.toString().padStart(2, "0")}:${stationMinute.toString().padStart(2, "0")}`,
+      TripMilage: `${TripMilage.toString().padStart(2, "0")}`,
+      TankFuel : `${TankfuelConsumption.toString().padStart(2, "0")}`,
+      PumpingDuration: `${pumpingHours.toString().padStart(2, "0")}:${pumpingMins.toString().padStart(2, "0")}`,
+      PumpFuel : `${PumpfuelConsumption.toString().padStart(2, "0")}`,
+      TotalFuel : `${TotalFuelConsumption.toString().padStart(2, "0")}`,
+
     });
   };
 
@@ -86,6 +100,11 @@ const FireTimeCalculator = () => {
           <p><strong>Fire Reached Time:</strong> {results.reached}</p>
           <p><strong>Fire Left Time:</strong> {results.left}</p>
           <p><strong>Station Reached Time:</strong> {results.station}</p>
+          <p><strong>Trip Milage:</strong> {results.TripMilage}</p>
+          <p><strong>Tank Fuel Consumption:</strong> {results.TankFuel}</p>
+          <p><strong>Pumping Duration:</strong> {results.PumpingDuration}</p>
+          <p><strong>Pump Fuel Consumption:</strong> {results.PumpFuel}</p>
+          <p><strong>Total Fuel Consumption:</strong> {results.TotalFuel}</p>
         </div>
       )}
     </div>
